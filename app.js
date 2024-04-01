@@ -11,6 +11,19 @@ class Character {
     }
 }
 
+class Adventurer extends Character {
+    constructor (name, role){
+        super(name);
+        this.role = role;
+        this.inventory.push('bedroll', '50 gold coins');
+    }
+    scout() {
+        console.log(`${this.name} is scouting ahead ...`);
+        super.roll();
+    }
+}
+
+
 const robin = new Character("Robin");
 robin.inventory = ["sword", "potion", "artifact"];
 robin.companion = new Character("Leo")
@@ -19,3 +32,4 @@ robin.companion.companion = new Character("Frank");
 robin.companion.companion.type = "Flea";
 robin.companion.companion.inventory = ["hat", "sunglasses"]
 
+robin.companion.companion.roll(5)
