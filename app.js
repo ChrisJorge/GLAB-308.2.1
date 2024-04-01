@@ -23,13 +23,35 @@ class Adventurer extends Character {
     }
 }
 
+class Companion extends Character{
+    constructor (name, role){
+        super(name);
+        this.role = role;
+    }
+    support() {
+        if (this.role === 'healer')
+        {
+            console.log(`${this.name} is casting a healing spell`)
+        }
+        else if (this.role === 'enchanter')
+        {
+            console.log(`${this.name} is increasing damage`)
+        }
+        else if (this.role === 'scavenger')
+        {
+            console.log(`${this.name} is searching for items`)
+        }
+        else {
+            console.log(`${this.name} is following the adventurer`)
+        }
+    }
+}
 
-const robin = new Character("Robin");
-robin.inventory = ["sword", "potion", "artifact"];
-robin.companion = new Character("Leo")
-robin.companion.type = "Cat";
-robin.companion.companion = new Character("Frank");
-robin.companion.companion.type = "Flea";
-robin.companion.companion.inventory = ["hat", "sunglasses"]
 
-robin.companion.companion.roll(5)
+
+const robin = new Adventurer("Robin", "Wizard")
+robin.inventory.push("potion", 'staff', 'wizard hat')
+robin.companion = new Companion('Leo', "healer")
+robin.companion.support()
+robin.companion.compaion = new Companion('Frank', 'enchanter')
+robin.companion.compaion.support()
